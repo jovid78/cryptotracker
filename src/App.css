@@ -1,22 +1,22 @@
-.App {
+@import-normalize;
+
+:root {
+  --white: #FFFFFF;
+  --white-off: #F7F7F7;
+  --grey-main: #898989;
+  --grey-mid: #898998;
+  --grey-light: #EEEEEE;
+
+  --primary-main: #195A7C;
+  --primary-tint: #51B2E2;
+
+  --accent-main: #3E9F93;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cryptotracker {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
 }

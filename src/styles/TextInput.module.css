@@ -1,0 +1,13 @@
+input {
+  background-color: var(--white-off);
+  border: none;
+  height: 2.2rem;
+  border-radius: 6px;
+  padding-left: 10px;
+  font-size: 18px;
+  color: var(--grey-main);
+}
+
+input::placeholder {
+  color: var(--grey-main);
+}
