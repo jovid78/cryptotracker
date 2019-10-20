@@ -13,8 +13,17 @@
   --accent-main: #3E9F93;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
+  color: var(--grey-main);
 }
 
 .cryptotracker {

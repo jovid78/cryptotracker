@@ -4,15 +4,16 @@ import {PositionAdd} from '../components/PositionAdd';
 import {PositionsList} from '../components/PositionsList';
 import {PositionsTotal} from '../components/PositionsTotal';
 import {PositionsHistorical} from '../components/PositionsHistorical';
+import styles from '../styles/PositionsPanel.module.css'
 
 export function PositionsPanel(props) {
   return (
-    <React.Fragment>
+    <div className={styles.panel}>
       <Header/>
       <PositionAdd/>
       <PositionsList/>
       <PositionsTotal/>
       <PositionsHistorical/>
-    </React.Fragment>
+    </div>
   )
 }

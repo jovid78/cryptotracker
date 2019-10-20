@@ -1,5 +1,6 @@
 import React from 'react';
-import {CrossDot} from './CrossDot'
+import {PlusDot} from './PlusDot'
+import styles from '../styles/AddButton.module.css'
 
 const copy = {
   add: 'Add'
@@ -7,9 +8,9 @@ const copy = {
 
 export function AddButton (props) {
   return (
-    <div>
-      <span>{copy.add}</span>
-      <CrossDot/>
-    </div>
+    <React.Fragment>
+      <span className={styles.text}> {copy.add}</span>
+      <span className={styles.icon}><PlusDot/></span>
+    </React.Fragment>
   )
 }

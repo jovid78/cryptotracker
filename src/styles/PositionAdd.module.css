@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  display: inline-block;
+  width: 90px;
+}
+
+.input + .input {
+  margin-left: 16px;
+}
+
+.button {
+  margin-left: auto;
+  display: inline-block;
+}
