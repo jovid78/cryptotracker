@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as config from '../config/servicesConfig';
 
 const COIN_ENDPOINT = '/v1/cryptocurrency/listings/latest';
-const PARAMS = `?start=1&limit=1000&convert=USD&X-CMC_PRO_API_KEY=${config.CMC_API_KEY}`;
+const PARAMS = `?start=1&limit=1000&convert=USD&CMC_PRO_API_KEY=${config.CMC_API_KEY}`;
 
 export class CoinService {
 
