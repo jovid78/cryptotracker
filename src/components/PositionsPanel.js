@@ -11,7 +11,7 @@ export function PositionsPanel(props) {
     <div className={styles.panel}>
       <Header/>
       <PositionAdd/>
-      <PositionsList/>
+      <div className={styles.list}><PositionsList/></div>
       <PositionsTotal/>
       <PositionsHistorical/>
     </div>

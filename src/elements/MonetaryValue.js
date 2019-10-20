@@ -1,7 +1,12 @@
 import React from 'react';
+import styles from '../styles/MonetaryValue.module.css'
 
-export function MonetaryValue (props) {
+const config = {
+  fiat: '$'
+}
+
+export function MonetaryValue ({val}) {
   return (
-    <div></div>
+    <span className={styles.value}>{config.fiat}{val}</span>
   )
 }

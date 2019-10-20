@@ -1,0 +1,13 @@
+.list {
+  border-top: 1px solid var(--grey-light);
+  border-bottom: 1px solid var(--grey-light);
+}
+
+.item {
+  padding: 16px 0; 
+  padding-left: 8px;
+}
+
+.item + .item {
+  border-top: 1px solid var(--grey-light);
+}

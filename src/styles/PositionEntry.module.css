@@ -1,0 +1,24 @@
+.base {
+  display: flex;
+  justify-content: space-between;
+}
+
+.base span {
+  display: inline-block;
+  line-height: 22px;
+}
+
+.coin {
+  display: inline-block;
+  width: 90px;
+  text-align: left;
+  margin-right: 8px;
+}
+
+.value {
+  margin-left: auto;
+}
+
+.removeicon {
+  margin-left: 10px;
+}

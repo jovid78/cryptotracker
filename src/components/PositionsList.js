@@ -1,15 +1,12 @@
 import React from 'react';
-import {PositionEntry} from './PositionEntry'
+import {PositionEntry} from './PositionEntry';
+import styles from '../styles/PositionsList.module.css'
 
 export function PositionsList (props) {
   return (
-    <div>
-      <div>
-        <PositionEntry />
-      </div>
-      <div>
-        <PositionEntry />
-      </div>
+    <div className={styles.list}>
+      <div className={styles.item}><PositionEntry /></div>
+      <div className={styles.item}><PositionEntry /></div>
     </div>
   )
 }
