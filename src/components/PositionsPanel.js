@@ -13,7 +13,7 @@ export function PositionsPanel(props) {
 
   React.useEffect(() => {
     coinService.fetchCoinData()
-  }, [])
+  }, [coinService])
 
   return (
     <div className={styles.panel}>
