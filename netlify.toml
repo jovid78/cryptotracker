@@ -3,4 +3,3 @@
   to = "https://pro-api.coinmarketcap.com"
   status = 200
   force = true # COMMENT: ensure that we always redirect
-  headers = {'Content-Type': 'application/json'}
