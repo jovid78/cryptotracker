@@ -9,9 +9,11 @@ export class CoinService {
 
   async fetchCoinData() {
     const url = `${config.CMC_DOMAIN}${COIN_ENDPOINT}${PARAMS}`;
-    const response = await axios.get(url)
+    
+    axios.get(url).then((response) => {
+      return responseTrasformer(response.data)
+    })
 
-    return responseTrasformer(response.data)
   }
 
   fetchMock() {
@@ -19,7 +21,7 @@ export class CoinService {
   }
 };
 
-const responseTrasformer = (data) => {
+const responseTrasformer = ({data}) => {
   const coinData = new Map()
 
   for (const item of data) {
