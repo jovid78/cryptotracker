@@ -1,11 +1,11 @@
 import React from 'react';
 import {MonetaryValue} from '../elements/MonetaryValue';
 
-export function PositionsTotal (props) {
+export function PositionsTotal ({totalValue}) {
   return (
     <div>
       <p>Total Value</p>
-      <MonetaryValue />
+      <MonetaryValue value={totalValue}/>
     </div>
   )
 }

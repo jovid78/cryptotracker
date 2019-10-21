@@ -1,15 +1,15 @@
 import React from 'react';
 import { TextInput } from './TextInput';
 
-const placeholder = 'Quantity'
+const placeholder = 'Symbol'
 
-export function IntegerInput (props) {
+export function SymbolInput (props) {
 
   const onChange = (event) => {
     if (props.onChange) {
-      const numberString = event.target.value.replace(/\D/, '')
+      const symbolString = event.target.value.replace(/\W/, '').toUpperCase()
 
-      props.onChange(Number.parseInt(numberString) || '')
+      props.onChange(symbolString)
     }
   }
 

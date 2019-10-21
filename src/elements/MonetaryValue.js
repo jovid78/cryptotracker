@@ -5,8 +5,9 @@ const config = {
   fiat: '$'
 }
 
-export function MonetaryValue ({val}) {
+export function MonetaryValue ({value}) {
+
   return (
-    <span className={styles.value}>{config.fiat}{val}</span>
+    <span className={styles.value}>{config.fiat}{value.toFixed(2)}</span>
   )
 }

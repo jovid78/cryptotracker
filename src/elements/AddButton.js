@@ -9,8 +9,10 @@ const copy = {
 export function AddButton (props) {
   return (
     <React.Fragment>
-      <span className={styles.text}> {copy.add}</span>
-      <span className={styles.icon}><PlusDot/></span>
+    <span className={styles.text}> {copy.add}</span>
+    <button className={styles.button} onClick={props.onClick}>
+      <span><PlusDot/></span>
+    </button>
     </React.Fragment>
   )
 }

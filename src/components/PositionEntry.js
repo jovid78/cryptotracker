@@ -4,14 +4,28 @@ import {MonetaryValue} from '../elements/MonetaryValue'
 import {CrossDot} from '../elements/CrossDot'
 import styles from '../styles/PositionEntry.module.css'
 
-export function PositionEntry
- (props) {
+export function PositionEntry ({
+  symbol,
+  quant,
+  value,
+  remove
+}) {
+
+  const onRemoveClick = () => {
+    remove(symbol)
+  }
+
   return (
     <div className={styles.base}>
-      <span className={styles.coin}><CoinSymbol val="BTC"/></span>
-      <span>6</span>
-      <span className={styles.value}><MonetaryValue val={48.476}/></span>
-      <span className={styles.removeicon}><CrossDot/></span>
+      <span className={styles.coin}><CoinSymbol value={symbol}/></span>
+      <span>{quant}</span>
+      <span className={styles.value}><MonetaryValue value={value}/></span>
+      <button
+        className={styles.removeicon}
+        onClick={onRemoveClick}
+      >
+        <CrossDot/>
+      </button>
     </div>
   )
 }

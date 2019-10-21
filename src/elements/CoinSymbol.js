@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from '../styles/CoinSymbol.module.css'
 
-export function CoinSymbol ({val}) {
+export function CoinSymbol ({value}) {
   return (
-    <span className={styles.symbol}>{val}</span>
+    <span className={styles.symbol}>{value}</span>
   )
 }
