@@ -5,20 +5,17 @@ import {PositionsList} from '../components/PositionsList';
 import {PositionsTotal} from '../components/PositionsTotal';
 import {PositionsHistorical} from '../components/PositionsHistorical';
 import styles from '../styles/PositionsPanel.module.css';
-import {CoinService} from '../services/CoinService';
+import {fetchCoinData} from '../services/CoinService';
 
 export function PositionsPanel(props) {
   const [coinMarketData, setCoinMarketData] = React.useState(new Map ())
   const [positions, setPositions] = React.useState(new Map())
-  // const [total, setTotal] = React.useState(0)
-
-  
-  const coinServiceRef = React.useRef(new CoinService())
-  const coinService = coinServiceRef.current
   
   React.useEffect(() => {
-    setCoinMarketData(coinService.fetchCoinData())
-  }, [coinService])
+    fetchCoinData().then((coinData) => {
+      setCoinMarketData(coinData)
+    })
+  }, [])
 
   const onPositionAdd = (addition) => {
     if (!addition.quantity || !addition.symbol) {return}
