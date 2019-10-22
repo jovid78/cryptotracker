@@ -11,11 +11,14 @@ export const fetchCoinData = async () => {
     return responseTrasformer(response.data)
   }
 
-const responseTrasformer = ({data}) => {
+export const responseTrasformer = ({data}) => {
   const coinData = new Map()
 
   for (const item of data) {
-    coinData.set(item.symbol, item.quote.USD.price)
+    coinData.set(item.symbol, {
+      name: item.name,
+      price: item.quote.USD.price
+    })
   }
 
   return coinData

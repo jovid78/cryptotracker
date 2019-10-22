@@ -1,26 +1,53 @@
 import React from 'react';
-import { TextInput } from './TextInput';
+import Autosuggest from 'react-autosuggest'; 
 
-const placeholder = 'Symbol'
+const placeholder = 'Symbol';
 
-export function SymbolInput (props) {
+export function SymbolInput ({
+  onChange: onChangeProp,
+  value,
+  suggestions,
+  onSuggestionsFetchRequested,
+  onSuggestionsClearRequested,
+}) {
+  // const [selectedSymbol, setSelectedSymbol] = React.useState()
+
+  const getSuggestionValue = suggestion => suggestion;
 
   const onChange = (event) => {
-    if (props.onChange) {
-      const symbolString = event.target.value.replace(/\W/, '').toUpperCase()
+    if (onChangeProp) {
+      const value = event.target.value || ''
+      const symbolString = value.replace(/\W/, '').toUpperCase()
 
-      props.onChange(symbolString)
+      onChangeProp(symbolString)
     }
   }
 
+  const onSuggestionSelected = (_event, data) => {
+    onChangeProp(data.suggestionValue);
+    onSuggestionsClearRequested();
+  }
+
+  const renderSuggestion = suggestion => (
+    <div>
+      {suggestion}
+    </div>
+  );
+
   const inputProps = {
-    ...props,
-    value: props.value,
+    value,
     placeholder,
     onChange,
   }
 
-  return <TextInput
-    {...inputProps}
+  return <Autosuggest
+    suggestions={suggestions}
+    onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+    onSuggestionsClearRequested={onSuggestionsClearRequested}
+    onSuggestionSelected={onSuggestionSelected}
+    getSuggestionValue={getSuggestionValue}
+    renderSuggestion={renderSuggestion}
+    inputProps={inputProps}
+    alwaysRenderSuggestions={true}
   />
 }

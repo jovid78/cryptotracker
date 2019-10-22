@@ -6,6 +6,8 @@ import {PositionsTotal} from '../components/PositionsTotal';
 import {PositionsHistorical} from '../components/PositionsHistorical';
 import styles from '../styles/PositionsPanel.module.css';
 import {fetchCoinData} from '../services/CoinService';
+import {responseTrasformer} from '../services/CoinService';
+import jsonData from '../mocks/coindata.json';
 
 export function PositionsPanel(props) {
   const [coinMarketData, setCoinMarketData] = React.useState(new Map ())
@@ -14,16 +16,19 @@ export function PositionsPanel(props) {
   React.useEffect(() => {
     fetchCoinData().then((coinData) => {
       setCoinMarketData(coinData)
+    }).catch(() => {
+      // load mock when not on production (CoinMarketCap does not allow calls from browser).
+      setCoinMarketData(responseTrasformer(jsonData))
     })
   }, [])
 
-  const onPositionAdd = (addition) => {
-    if (!addition.quantity || !addition.symbol) {return}
+  const onPositionAdd = ({quantity, symbolQuery}) => {
+    if (!quantity || !symbolQuery || !coinMarketData.has(symbolQuery)) {return}
 
-    const currentQuantity = positions.get(addition.symbol) || 0
+    const currentQuantity = positions.get(symbolQuery) || 0
     const newPositions = new Map(positions)
 
-    newPositions.set(addition.symbol, (currentQuantity + addition.quantity))
+    newPositions.set(symbolQuery, (currentQuantity + quantity))
     setPositions(newPositions)
   }
 
@@ -38,7 +43,7 @@ export function PositionsPanel(props) {
     const valuatedPositions = []
 
     const totalValue = Array.from(positions).reduce((acc, [symbol, quant]) => {
-      const valPerUnit = coinMarketData.get(symbol) || 0
+      const valPerUnit = getPrice(coinMarketData, symbol);
       const total = quant * valPerUnit
 
       valuatedPositions.push({symbol, quant, total})
@@ -46,8 +51,13 @@ export function PositionsPanel(props) {
       return acc + total
     }, 0)
 
-
     return [valuatedPositions, totalValue]
+
+    function getPrice(collection, symbol) {
+      const symbolInfo = collection.get(symbol);
+
+      return (symbolInfo && symbolInfo.price) || 0
+    }
   }
 
   const [marketPositions, grandTotal] = getPositionValues(positions)
@@ -57,6 +67,7 @@ export function PositionsPanel(props) {
       <Header/>
       <PositionAdd
         onPositionAdd={onPositionAdd}
+        coinData={coinMarketData}
       />
       <div className={styles.list}>
         <PositionsList
