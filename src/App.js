@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="cryptotracker">
       <TopNavigation/>
-      <PositionsPanel />
+      <PositionsPanel/>
     </div>
   );
 }

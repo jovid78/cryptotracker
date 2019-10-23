@@ -1,0 +1,25 @@
+
+/* svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+} */
+
+.path {
+  fill: none;
+  stroke-width: 3;
+  stroke: url(#spline-gradient) #fff;
+}
+
+.gradient {
+  --color-start: #3D9E91;
+  --color-end: #4FAED3;
+}
+
+.startPoint {
+  fill: #3D9E91
+}
+
+.endPoint {
+  fill: #4FAED3
+}

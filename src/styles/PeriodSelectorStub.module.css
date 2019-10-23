@@ -1,0 +1,15 @@
+.base {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.selected {
+  background-color: var(--primary-tint);
+    width: 43px;
+    height: 31px;
+    border-radius: 6px;
+    color: var(--white);
+}
+

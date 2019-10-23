@@ -76,7 +76,7 @@ export function PositionsPanel(props) {
         />
       </div>
       <PositionsTotal totalValue={grandTotal}/>
-      <PositionsHistorical/>
+      <PositionsHistorical historicalData={undefined}/>
     </div>
   )
 }
